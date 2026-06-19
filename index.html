@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>爱游戏 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4fafb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1b2e35;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 主视觉 Hero */
+        .hero {
+            background: linear-gradient(145deg, #d7f0f0 0%, #b5dee2 100%);
+            border-radius: 2.5rem;
+            padding: 3rem 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 12px 30px -10px rgba(44, 130, 130, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0f3b43;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #24646e;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            display: inline-block;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #125a62;
+            color: #e3f5f7;
+            font-weight: 500;
+            font-size: 0.8rem;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            margin-top: 1.2rem;
+            letter-spacing: 0.03em;
+            box-shadow: 0 2px 6px rgba(18, 90, 98, 0.2);
+        }
+
+        /* 网格卡片系统 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 960px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 6px 18px rgba(52, 112, 112, 0.07);
+            transition: all 0.2s ease;
+            border: 1px solid #d7edef;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -6px rgba(43, 105, 105, 0.18);
+            border-color: #aad0d4;
+        }
+
+        .card-emoji {
+            font-size: 2.2rem;
+            display: inline-block;
+            background: #dff2f2;
+            width: 3.2rem;
+            height: 3.2rem;
+            line-height: 3.2rem;
+            text-align: center;
+            border-radius: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #12454d;
+            margin-bottom: 0.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2e5660;
+            margin-top: 0.6rem;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #e5f3f3;
+            color: #126169;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            margin-top: 0.8rem;
+        }
+
+        /* 用途卡片（蓝绿色点缀） */
+        .card-accent {
+            border-left: 5px solid #0f8b8c;
+            background: #f9feff;
+        }
+
+        .card-accent .card-emoji {
+            background: #c2e6e9;
+        }
+
+        /* 适合人群卡片 */
+        .card-people {
+            background: #f6fcfd;
+            border: 1px solid #bcd9dc;
+        }
+
+        .card-people .card-emoji {
+            background: #d5ecec;
+        }
+
+        /* 自然链接段落 + FAQ 摘要混合 */
+        .link-section {
+            background: #eaf5f6;
+            border-radius: 2.2rem;
+            padding: 2.2rem 2rem;
+            margin: 2rem 0 2.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .link-section p {
+            font-size: 1.02rem;
+            color: #1c4450;
+        }
+
+        .link-section strong {
+            color: #0b5b63;
+        }
+
+        .link-section a {
+            color: #0b6b72;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid #8ac7cb;
+            padding-bottom: 1px;
+            transition: border-color 0.2s;
+        }
+
+        .link-section a:hover {
+            border-bottom-color: #0b5b63;
+        }
+
+        .faq-mini {
+            background: #ffffffd9;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            margin-top: 0.2rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .faq-mini summary {
+            font-weight: 600;
+            color: #104d53;
+            cursor: pointer;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-mini p {
+            margin-top: 0.5rem;
+            color: #265b63;
+            font-size: 0.95rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed #b3d5d8;
+            margin: 1.8rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #3e727b;
+            font-size: 0.9rem;
+            padding: 1.5rem 0 0.5rem;
+            border-top: 1px solid #d1e4e6;
+            margin-top: auto;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .link-section {
+                padding: 1.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- Hero 主视觉 -->
+    <section class="hero">
+        <h1>🎮 简明指南 · 爱游戏</h1>
+        <p>发现值得花时间的世界，从这里开始。</p>
+        <span class="badge">🧭 访问提醒 · 日常陪伴</span>
+    </section>
+
+    <!-- 信息卡片网格：用途、特点、场景 -->
+    <div class="grid">
+        <div class="card card-accent">
+            <span class="card-emoji">🔍</span>
+            <h3>快速找游戏</h3>
+            <p>不再被资讯淹没。分类筛选、近期热门、小众宝藏，用更少时间找到对胃口的作品。</p>
+            <span class="tag">指南属性</span>
+        </div>
+
+        <div class="card">
+            <span class="card-emoji">📖</span>
+            <h3>入门与技巧</h3>
+            <p>无论是主机、PC 还是手游，基础操作、系统设定、新手策略一应俱全。适合翻一翻再开坑。</p>
+            <span class="tag">简明攻略</span>
+        </div>
+
+        <div class="card card-people">
+            <span class="card-emoji">👥</span>
+            <h3>适合哪些人</h3>
+            <p>偶尔放松的上班族、想找共游伙伴的学生、刚入坑的轻度玩家，或者想换个口味的资深爱好者。</p>
+            <span class="tag">人群贴士</span>
+        </div>
+
+        <div class="card card-accent">
+            <span class="card-emoji">🌐</span>
+            <h3>跨平台参考</h3>
+            <p>同一款游戏在不同设备上的体验差异、存档互通、联机组队条件，帮你少走弯路。</p>
+            <span class="tag">平台指南</span>
+        </div>
+
+        <div class="card">
+            <span class="card-emoji">🧘</span>
+            <h3>适龄与节奏</h3>
+            <p>每款游戏都标注了建议时长、难度、内容分级，方便根据精力与兴趣做选择，不盲目跟风。</p>
+            <span class="tag">场景建议</span>
+        </div>
+
+        <div class="card card-people">
+            <span class="card-emoji">📌</span>
+            <h3>日常提醒</h3>
+            <p>活动截止、版本更新、限时免费信息，用轻量的方式跟进，不错过但也不焦虑。</p>
+            <span class="tag">访问备忘</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + FAQ 摘要 (嵌入核心链接) -->
+    <section class="link-section">
+        <p>
+            <strong>🏁 出发之前</strong> —— 如果你想找一个清爽、信息不冗余的参考站点，
+            <a href="https://zhportal-aiyouxi.com.cn">爱游戏</a> 整理了不同平台的入门路线和近期动态，
+            适合先浏览再决定玩什么。页面风格偏安静，没有弹窗干扰。
+        </p>
+        <p>
+            另外，养成定期清理游戏库的习惯，会轻松很多。偶尔把精力集中在两三个作品上，体验往往比同时追七八个更好——
+            这也是 <strong>爱游戏</strong> 在指南里常提到的「少即是多」观点。
+        </p>
+
+        <div class="faq-mini">
+            <details>
+                <summary>📌 访问爱游戏要注意什么？</summary>
+                <p>建议使用较新版本的浏览器（Chrome / Edge / Safari），部分交互卡片在移动端体验更佳。
+                站点不含强制注册内容，直接浏览即可。如果遇到加载问题，可以尝试刷新或稍后再试。</p>
+            </details>
+            <details>
+                <summary>🎯 适合新手吗？完全小白也可以？</summary>
+                <p>是的，很多页面从最基础的概念开始讲，比如手柄按键、帧率常识、存档机制等等。没有门槛，随时可以翻开看。</p>
+            </details>
+            <details>
+                <summary>🧩 怎么找到自己感兴趣的内容？</summary>
+                <p>主页有分类标签（冒险、策略、模拟、独立等），也可以直接搜索游戏名或关键词。卡片式的摘要很直观，点击就能展开详细说明。</p>
+            </details>
+        </div>
+
+        <p style="font-size:0.95rem; opacity:0.8; margin-top:0.4rem;">
+            ⏳ 以上为常见FAQ摘要，完整版请直接访问
+            <a href="https://zhportal-aiyouxi.com.cn">爱游戏</a> 查看。
+        </p>
+    </section>
+
+    <!-- 补充场景与提醒: 移动端友好、日常使用 -->
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; background: #f1fafb; border-radius: 1.8rem; padding: 1.2rem 1.8rem; margin-bottom: 2rem; align-items: center;">
+        <span style="font-weight: 500; color:#146872;">📱 移动端友好</span>
+        <span style="color:#24757b;">·</span>
+        <span style="color:#296f77;">页面卡片自适应，手机阅读体验舒适</span>
+        <span style="color:#24757b;">·</span>
+        <span style="color:#296f77;">无需额外缩放</span>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <p>内容基于公开信息整理 · 保持适度游戏 · <a href="https://zhportal-aiyouxi.com.cn" style="color:#0f6b73; text-decoration:none; border-bottom:1px solid #8ac7cb;">爱游戏</a> 提供指南与提醒</p>
+        <p style="margin-top:0.3rem; font-size:0.85rem; opacity:0.65;">—— 每次打开都是一次安静的探索 ——</p>
+    </div>
+</div>
+</body>
+</html>
