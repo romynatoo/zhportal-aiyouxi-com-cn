@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品说明 · bet365 介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    .page-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: white;
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+      color: #0f172a;
+    }
+
+    .hero .sub {
+      font-size: 1.15rem;
+      color: #475569;
+      max-width: 780px;
+      border-left: 4px solid #94a3b8;
+      padding-left: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    /* layout */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 1.75rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e2e8f0;
+      transition: border 0.15s;
+    }
+
+    .card:hover {
+      border-color: #cbd5e1;
+    }
+
+    .card h2 {
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e9edf2;
+      color: #1e293b;
+    }
+
+    .card ul, .card p {
+      margin-bottom: 0.85rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card li::before {
+      content: "—";
+      color: #94a3b8;
+      font-weight: 300;
+      display: inline-block;
+      width: 1rem;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      border: 1px solid #e2e8f0;
+      margin-right: 0.3rem;
+    }
+
+    .full-width-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .full-width-card h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.1rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 550;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      color: #475569;
+      margin-left: 0.4rem;
+    }
+
+    .link-sentence {
+      margin-top: 1.2rem;
+      background: #f8fafc;
+      padding: 0.9rem 1.4rem;
+      border-radius: 80px;
+      border: 1px solid #e9edf2;
+      color: #334155;
+      display: inline-block;
+    }
+
+    .link-sentence a {
+      color: #1e293b;
+      text-decoration: none;
+      font-weight: 520;
+      border-bottom: 1px solid #94a3b8;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .link-sentence a:hover {
+      color: #0f172a;
+      border-bottom-color: #1e293b;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.4rem;
+      margin-top: 2rem;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .hero {
+        padding: 2rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .card {
+        padding: 1.5rem;
+      }
+      .full-width-card {
+        padding: 1.5rem;
+      }
+      .link-sentence {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1rem;
+      }
+      .hero {
+        border-radius: 20px;
+        padding: 1.5rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .card li::before {
+        content: "·";
+        font-weight: 600;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- hero 区域 -->
+  <section class="hero">
+    <h1>查询 · 对照 · 延伸阅读</h1>
+    <div class="sub">
+      一个轻量的产品介绍页面，围绕日常使用场景梳理 <span class="badge">bet365</span> 的功能亮点、实用建议与常见疑问。
+      <span style="display: block; margin-top: 0.5rem; font-size: 0.95rem; color: #64748b;">—— 基于公开信息与一般经验整理</span>
+    </div>
+  </section>
+
+  <!-- 两列卡片：摘要 + 亮点 -->
+  <div class="grid-2col">
+    <!-- 摘要卡片 -->
+    <div class="card">
+      <h2>📋 产品摘要</h2>
+      <p>作为一个综合性线上平台，<a href="https://officials-bet365.com" style="color: #1e293b; text-decoration: underline; text-underline-offset: 2px; text-decoration-color: #94a3b8;">bet365</a> 覆盖了体育、赛事直播、游戏娱乐等多种内容。用户可以通过网页端或移动应用进行实时浏览、赛事跟进以及个性化设置。</p>
+      <p>平台的特点在于界面信息密度较高，且提供了丰富的市场选项和统计工具，适合希望快速查看赔率、赛程和历史数据的用户日常使用。</p>
+      <p style="margin-top: 0.8rem; background: #f8fafc; padding: 0.6rem 1rem; border-radius: 16px; font-size: 0.9rem;">日常场景：赛前对比、赛中追踪、赛后复盘。</p>
+    </div>
+
+    <!-- 亮点卡片 -->
+    <div class="card">
+      <h2>✨ 功能亮点</h2>
+      <ul>
+        <li><strong>赛事覆盖广</strong> —— 足球、篮球、网球、电竞等主流项目，附带实时数据面板</li>
+        <li><strong>流式更新</strong> —— 比赛过程中赔率、统计变化流畅，减少刷新等待</li>
+        <li><strong>自定义视图</strong> —— 收藏联赛、设置偏好提醒，打造个人信息流</li>
+        <li><strong>多端同步</strong> —— 桌面与移动端数据互通，方便随时切换设备</li>
+        <li><strong>历史记录与统计</strong> —— 可回溯近期对局、指数变化，便于简单分析</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 使用建议 + 常见场景（宽卡片） -->
+  <div class="full-width-card">
+    <h2>🧭 使用建议 & 日常场景</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem;">
+      <div>
+        <p style="margin-bottom: 0.8rem;"><span style="background: #e9edf2; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.8rem; font-weight: 500;">对照查阅</span></p>
+        <p>在赛前阶段，可以同时打开多个联赛或赛事页签，利用平台提供的对比功能快速评估不同市场的差异。搭配筛选器按时间、联赛、盘口类型排列，减少信息过载。</p>
+        <p style="margin-top: 1rem;"><span style="background: #e9edf2; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.8rem; font-weight: 500;">延伸阅读</span></p>
+        <p>赛后利用“历史”模块查看完整走势图，结合基础统计了解变化逻辑。也可以通过官方博客或帮助中心获取关于规则、术语的说明。</p>
+      </div>
+      <div>
+        <p style="margin-bottom: 0.8rem;"><span style="background: #e9edf2; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.8rem; font-weight: 500;">日常查询</span></p>
+        <p>每日快速浏览：打开首页的“热门赛事”或“即将开始”模块，辅以赔率变动提醒，及时掌握动态。建议开启双重验证以保护账户安全。</p>
+        <p style="margin-top: 1rem;"><span style="background: #e9edf2; padding: 0.1rem 0.6rem; border-radius: 30px; font-size: 0.8rem; font-weight: 500;">轻量整理</span></p>
+        <p>对于长期关注的球队或选手，可利用“收藏”功能建立个人列表。赛程、结果、数据一目了然，适合做简单的趋势对照。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 可信说明 -->
+  <div class="full-width-card" style="margin-bottom: 0;">
+    <h2>❓ 常见疑问摘要</h2>
+    <div class="faq-item">
+      <strong>Q：平台是否支持简体中文？</strong>
+      <p>界面支持多语言切换，包括中文。具体语言选项可在设置中调整，部分帮助内容可能以英文为主。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：使用前需要注意什么？</strong>
+      <p>建议先了解当地相关法规与年龄限制。平台提供负责任游戏工具，如存款限额、冷静期等。初次使用可以先浏览免费演示内容或帮助页面。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：数据更新频率如何？</strong>
+      <p>主流赛事基本实现秒级更新，但受网络与数据源影响可能存在短暂延迟。休赛期或小众联赛更新频率相对较低。</p>
+    </div>
+    <div style="margin-top: 1.5rem; background: #f8fafc; padding: 1rem 1.4rem; border-radius: 20px; border: 1px solid #e9edf2;">
+      <p style="font-size: 0.95rem; color: #1e293b;"><strong>可信但克制的说明</strong><br>
+      本页面仅基于公开资料与一般经验整理，不构成任何操作建议。平台功能、界面与政策可能随时调整，请以官网实际版本为准。如需深入了解，可直接访问 <a href="https://officials-bet365.com" style="color: #1e293b; font-weight: 500; text-decoration: underline; text-underline-offset: 2px;">bet365</a> 查看最新信息。合理分配时间，保持理性。</p>
+    </div>
+
+    <div class="link-sentence">
+      日常查询与对照，我们常会打开 <a href="https://officials-bet365.com">bet365</a> 进行快速浏览和比较。
+    </div>
+  </div>
+
+  <div class="footnote">
+    产品说明型页面 · 仅供信息参考 · 版本 2405
+  </div>
+
+</div>
+</body>
+</html>
